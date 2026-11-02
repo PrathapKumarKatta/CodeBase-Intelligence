@@ -18,7 +18,7 @@ class EmbeddingProvider(ABC):
         pass
 
     @abstractmethod
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+    def embed_documents(self, texts: List[str], batch_size: int = 32) -> List[List[float]]:
         """Generate embeddings for a list of document strings."""
         pass
 
@@ -107,7 +107,7 @@ class MockEmbeddingProvider(EmbeddingProvider):
             vec = vec / norm
         return vec.tolist()
 
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+    def embed_documents(self, texts: List[str], batch_size: int = 32) -> List[List[float]]:
         return [self._hash_to_vec(t) for t in texts]
 
     def embed_query(self, text: str) -> List[float]:
