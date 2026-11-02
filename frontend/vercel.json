@@ -3,6 +3,14 @@
   "framework": "vite",
   "rewrites": [
     {
+      "source": "/api/:path*",
+      "destination": "https://codebase-intelligence-xi.vercel.app/api/:path*"
+    },
+    {
+      "source": "/health/:path*",
+      "destination": "https://codebase-intelligence-xi.vercel.app/health/:path*"
+    },
+    {
       "source": "/((?!api/|health/).*)",
       "destination": "/index.html"
     }

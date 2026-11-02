@@ -73,11 +73,14 @@ export const api = {
       body: JSON.stringify({ email, password }),
     }),
 
-  login: (email: string, password: string): Promise<AuthTokens> =>
-    request<AuthTokens>("/auth/login", {
+  login: async (email: string, password: string): Promise<AuthTokens> => {
+    const tokens = await request<AuthTokens>("/auth/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
-    }),
+    });
+    setToken(tokens.access_token);
+    return tokens;
+  },
 
   getMe: (): Promise<User> => request<User>("/auth/me"),
 

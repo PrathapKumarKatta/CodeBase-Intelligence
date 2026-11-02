@@ -80,3 +80,7 @@ The frontend is maintained by Pratap Kumar Katta. Import `PrathapKumarKatta/Code
 Set `VITE_API_BASE_URL` to the public backend API base URL, including `/api/v1`, then redeploy. This value is public and must contain no credentials. Allow the Vercel site origin in the backend `BACKEND_CORS_ORIGINS`.
 
 The Python backend, PostgreSQL with pgvector, Redis, Celery worker, embedding models, and persistent uploads require separate hosting. A frontend deployment alone does not provide working authentication or code analysis.
+
+### Current production connection
+
+Frontend: `https://codebase-intelligence-seven.vercel.app`. Backend: `https://codebase-intelligence-xi.vercel.app` (API docs at `/api/v1/docs`). The frontend Vercel rewrites proxy `/api/*` and `/health/*` to this backend so browsers use the same origin. Leave `VITE_API_BASE_URL` unset for this deployment.
