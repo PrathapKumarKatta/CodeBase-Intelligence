@@ -75,10 +75,10 @@ def test_full_ingestion_and_rag_pipeline(client: TestClient):
     assert len(search_hits) > 0
     assert any("auth/service.py" in h["file_path"] for h in search_hits)
 
-    # 8. Chat with Codebase (RAG)
+    # 8. Query an exact symbol: offline hash embeddings do not model semantic similarity.
     chat_res = client.post(
         f"/api/v1/projects/{project_id}/chat",
-        json={"message": "Where is user authentication implemented?"},
+        json={"message": "authenticate_user"},
         headers=headers,
     )
     assert chat_res.status_code == 200

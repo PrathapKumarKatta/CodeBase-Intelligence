@@ -23,7 +23,7 @@ class MockLLMProvider(LLMProvider):
 
         # Extract file paths and line ranges from the context if present
         file_matches = re.findall(
-            r"\[File:\s*([^\s\]]+)\s*\|\s*Lines:\s*(\d+)–(\d+)\]", user_prompt
+            r"\[File:\s*([^\s\]]+)\s*\|\s*Lines:\s*(\d+)[–\-](\d+)(?:\s*\|\s*Symbol:[^\]]*)?\]", user_prompt
         )
 
         if not file_matches:
@@ -34,7 +34,7 @@ class MockLLMProvider(LLMProvider):
 
         citations_summary = []
         for file_path, start, end in file_matches[:3]:
-            citations_summary.append(f"- **{file_path}** (Lines {start}–{end})")
+            citations_summary.append(f"- [File: {file_path} | Lines: {start}–{end}]")
 
         citations_text = "\n".join(citations_summary)
         first_file, first_start, first_end = file_matches[0]
