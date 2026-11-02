@@ -56,3 +56,6 @@ backend/storage/
 *.swo
 .idea/
 .vscode/
+
+# Vercel local configuration
+.vercel/

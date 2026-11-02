@@ -6,7 +6,7 @@ services:
     container_name: codebase_postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-charan}
+      POSTGRES_USER: ${POSTGRES_USER:-pratap}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: ${POSTGRES_DB:-codebase_intelligence}
     ports:
@@ -14,7 +14,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-charan} -d ${POSTGRES_DB:-codebase_intelligence}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-pratap} -d ${POSTGRES_DB:-codebase_intelligence}"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -41,7 +41,7 @@ services:
       - APP_NAME=Codebase Intelligence
       - APP_ENV=production
       - DEBUG=false
-      - DATABASE_URL=postgresql+psycopg://${POSTGRES_USER:-charan}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-codebase_intelligence}
+      - DATABASE_URL=postgresql+psycopg://${POSTGRES_USER:-pratap}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-codebase_intelligence}
       - REDIS_URL=redis://redis:6379/0
       - CELERY_BROKER_URL=redis://redis:6379/1
       - CELERY_RESULT_BACKEND=redis://redis:6379/2
@@ -76,7 +76,7 @@ services:
     environment:
       - APP_NAME=Codebase Intelligence
       - APP_ENV=production
-      - DATABASE_URL=postgresql+psycopg://${POSTGRES_USER:-charan}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-codebase_intelligence}
+      - DATABASE_URL=postgresql+psycopg://${POSTGRES_USER:-pratap}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-codebase_intelligence}
       - REDIS_URL=redis://redis:6379/0
       - CELERY_BROKER_URL=redis://redis:6379/1
       - CELERY_RESULT_BACKEND=redis://redis:6379/2

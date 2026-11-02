@@ -1,6 +1,7 @@
 [project]
 name = "codebase-intelligence-backend"
 version = "0.1.0"
+authors = [{name = "Pratap Kumar Katta"}]
 description = "Production-grade Codebase Intelligence RAG Backend"
 readme = "README.md"
 requires-python = ">=3.11"

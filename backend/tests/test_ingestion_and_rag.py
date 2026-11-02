@@ -21,7 +21,7 @@ def test_full_ingestion_and_rag_pipeline(client: TestClient):
     project_id = proj_res.json()["id"]
 
     # 3. Upload ZIP file
-    zip_sample_path = Path("/Users/charan/RAG/sample_projects/microservice.zip")
+    zip_sample_path = Path(__file__).resolve().parents[2] / "sample_projects" / "microservice.zip"
     assert zip_sample_path.exists(), "Sample ZIP archive must exist"
 
     with open(zip_sample_path, "rb") as zf:

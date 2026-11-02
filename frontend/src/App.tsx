@@ -62,6 +62,9 @@ export const AppContent: React.FC = () => {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <footer className="border-t border-[#21262d] py-4 text-center text-xs text-[#8b949e]">
+        CodeBase-Intelligence by <a className="text-brand-400 hover:underline" href="https://github.com/PrathapKumarKatta">Pratap Kumar Katta</a>
+      </footer>
     </div>
   );
 };

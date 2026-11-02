@@ -50,7 +50,7 @@ def ensure_evaluated_project(db) -> uuid.UUID:
         job_repo = JobRepository(db)
         job = job_repo.create(project_id=project.id)
 
-        zip_path = Path("/Users/charan/RAG/sample_projects/microservice.zip")
+        zip_path = Path(__file__).resolve().parents[1] / "sample_projects" / "microservice.zip"
         temp_dir = Path("/tmp/eval_ingestion")
         temp_dir.mkdir(parents=True, exist_ok=True)
 
